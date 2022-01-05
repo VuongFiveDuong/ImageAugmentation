@@ -3,6 +3,8 @@ import numpy as np
 import imgaug.augmenters as iaa
 import os
 from pathlib import Path
+from rotate import rotate_img
+from shift import shift_img
 
 
 def append_extension(filename, extension):
@@ -38,7 +40,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--rotate', type=float, default=0,
-                        help="Rotation in degrees (NOT radians), i.e. expected value range is around [-360, 360]. Rotation happens around the center of the image, not the top left corner as in some other frameworks.")
+                        help="Rotation in degrees (NOT radians), i.e. expected value range is around [-360, 360]")
     parser.add_argument('--shift_x_px', type=int, default=0,
                         help="move to E by pixel.")
     parser.add_argument('--shift_y_px', type=int, default=0,
@@ -47,7 +49,8 @@ if __name__ == '__main__':
     #                     help="0 denotes “no change” and 0.5 denotes “half of the axis size” to E.")
     # parser.add_argument('--shift_y_percent', type=float, default=0,
     #                     help=" denotes “no change” and 0.5 denotes “half of the axis size” to S.")
-    # parser.add_argument('--suffix', type=str, help="The suffix of saved images, e.g. suffix='rotate10'", default="augmented")
+    # parser.add_argument('--suffix', type=str,
+    #                       help="The suffix of saved images, e.g. suffix='rotate10'", default="augmented")
     parser.add_argument('--mode', type=str, help="The method to use when filling newly created pixels", default="wrap")
 
     args = parser.parse_args()
@@ -62,10 +65,10 @@ if __name__ == '__main__':
     original_images_dir = 'OriginalImages/'
     augmented_images_dir = 'Off-centered/'
 
-    # Define the augmentation
-    aug = iaa.Affine(rotate=args.rotate, translate_px={"x": args.shift_x_px, "y": args.shift_y_px},
-                     # translate_percent={"x": args.shift_x_percent, "y": args.shift_y_percent},
-                     mode=args.mode)
+    # # Define the translation
+    # augment_img = iaa.Affine(translate_px={"x": args.shift_x_px, "y": args.shift_y_px},
+    #                  # translate_percent={"x": args.shift_x_percent, "y": args.shift_y_percent},
+    #                  mode=args.mode)
 
     # print(rotate_degree, args.shift_x, args.shift_y)
 
@@ -73,8 +76,9 @@ if __name__ == '__main__':
     for img_path in glob.glob(original_images_dir + img_extension):
         img = cv2.imread(img_path)
         # augmented_imgs = augmentation(images=[img])
+        rotated_img = rotate_img(img, rotate)
 
-        augmented_img = aug(image=img)
+        augmented_img = shift_img(rotated_img, shift_x, shift_y)
 
         augmented_img_name = append_extension(img_path, file_extension)
         cv2.imwrite(os.path.join(augmented_images_dir, augmented_img_name), augmented_img)
