@@ -39,7 +39,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--rotate', type=float, default=0,
+    parser.add_argument('--rotate', type=int, default=0,
                         help="Rotation in degrees (NOT radians), i.e. expected value range is around [-360, 360]")
     parser.add_argument('--shift_x_px', type=int, default=0,
                         help="move to E by pixel.")
@@ -62,7 +62,7 @@ if __name__ == '__main__':
 
     scale_percent = 25  # for reviewing
     img_extension = "*.jpg"
-    original_images_dir = 'OriginalImages/'
+    original_images_dir = 'testOriginal/'
     augmented_images_dir = 'Off-centered/'
 
     # # Define the translation
