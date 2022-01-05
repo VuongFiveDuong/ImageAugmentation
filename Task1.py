@@ -11,20 +11,24 @@ def append_extension(filename, extension):
 
 
 def make_file_extension(rotate, shift_x, shift_y):
-    if shift_x == 0:
-        shifting_x_extension = ''
-    elif shift_x > 0:
-        shifting_x_extension = '_E_' + str(shift_x)
-    else:
-        shifting_x_extension = '_W_' + str(-shift_x)
+    # if shift_x == 0:
+    #     shifting_x_extension = ''
+    # elif shift_x > 0:
+    #     shifting_x_extension = '_E_' + str(shift_x)
+    # else:
+    #     shifting_x_extension = '_W_' + str(-shift_x)
+    shifting_x_extension = '_E_' + str(shift_x)
 
-    if shift_y == 0:
-        shifting_y_extension = ''
-    elif shift_y > 0:
-        shifting_y_extension = '_S_' + str(shift_y)
-    else:
-        shifting_y_extension = '_N_' + str(-shift_y)
-    return 'R_' + str(rotate) + shifting_x_extension + shifting_y_extension
+    # if shift_y == 0:
+    #     shifting_y_extension = ''
+    # elif shift_y > 0:
+    #     shifting_y_extension = '_S_' + str(shift_y)
+    # else:
+    #     shifting_y_extension = '_N_' + str(-shift_y)
+    shifting_y_extension = '_S_' + str(shift_y)
+
+    rotation_extension = 'R_' + str(rotate)
+    return rotation_extension + shifting_x_extension + shifting_y_extension
 
 
 if __name__ == '__main__':
@@ -33,7 +37,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--rotate', type=int, default=0,
+    parser.add_argument('--rotate', type=float, default=0,
                         help="Rotation in degrees (NOT radians), i.e. expected value range is around [-360, 360]. Rotation happens around the center of the image, not the top left corner as in some other frameworks.")
     parser.add_argument('--shift_x_px', type=int, default=0,
                         help="move to E by pixel.")
@@ -44,7 +48,7 @@ if __name__ == '__main__':
     # parser.add_argument('--shift_y_percent', type=float, default=0,
     #                     help=" denotes “no change” and 0.5 denotes “half of the axis size” to S.")
     # parser.add_argument('--suffix', type=str, help="The suffix of saved images, e.g. suffix='rotate10'", default="augmented")
-    parser.add_argument('--mode', type=str, help="The method to use when filling newly created pixels", default="edge")
+    parser.add_argument('--mode', type=str, help="The method to use when filling newly created pixels", default="wrap")
 
     args = parser.parse_args()
     rotate = args.rotate
@@ -56,7 +60,7 @@ if __name__ == '__main__':
     scale_percent = 25  # for reviewing
     img_extension = "*.jpg"
     original_images_dir = 'OriginalImages/'
-    augmented_images_dir = 'AugmentedImages/'
+    augmented_images_dir = 'Off-centered/'
 
     # Define the augmentation
     aug = iaa.Affine(rotate=args.rotate, translate_px={"x": args.shift_x_px, "y": args.shift_y_px},
