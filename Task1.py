@@ -3,13 +3,13 @@ import numpy as np
 import imgaug.augmenters as iaa
 import os
 from pathlib import Path
-from rotate import rotate_img
-from shift import shift_img
+from transformation import rotate_img
+from transformation import shift_img
 
 
 def append_extension(filename, extension):
     path = Path(filename)
-    return "{0}_{1}{2}".format(path.stem, extension, path.suffix)
+    return "{0}{1}{2}".format(path.stem, extension, path.suffix)
 
 
 def make_file_extension(rotate, shift_x, shift_y):
@@ -29,7 +29,7 @@ def make_file_extension(rotate, shift_x, shift_y):
     #     shifting_y_extension = '_N_' + str(-shift_y)
     shifting_y_extension = '_S_' + str(shift_y)
 
-    rotation_extension = 'R_' + str(rotate)
+    rotation_extension = '_R_' + str(rotate)
     return rotation_extension + shifting_x_extension + shifting_y_extension
 
 
@@ -62,15 +62,8 @@ if __name__ == '__main__':
 
     scale_percent = 25  # for reviewing
     img_extension = "*.jpg"
-    original_images_dir = 'testOriginal/'
+    original_images_dir = 'CroppedImages/'
     augmented_images_dir = 'Off-centered/'
-
-    # # Define the translation
-    # augment_img = iaa.Affine(translate_px={"x": args.shift_x_px, "y": args.shift_y_px},
-    #                  # translate_percent={"x": args.shift_x_percent, "y": args.shift_y_percent},
-    #                  mode=args.mode)
-
-    # print(rotate_degree, args.shift_x, args.shift_y)
 
     # Loop through each of original image
     for img_path in glob.glob(original_images_dir + img_extension):
@@ -82,15 +75,16 @@ if __name__ == '__main__':
 
         augmented_img_name = append_extension(img_path, file_extension)
         cv2.imwrite(os.path.join(augmented_images_dir, augmented_img_name), augmented_img)
+        print(os.path.join(augmented_images_dir, augmented_img_name))
 
-        width = int(augmented_img.shape[1] * scale_percent / 100)
-        height = int(augmented_img.shape[0] * scale_percent / 100)
-        dim = (width, height)
+        # width = int(augmented_img.shape[1] * scale_percent / 100)
+        # height = int(augmented_img.shape[0] * scale_percent / 100)
+        # dim = (width, height)
 
         # resize image
-        small_img = cv2.resize(augmented_img, dim, interpolation=cv2.INTER_AREA)
-        cv2.imshow("Augmented image", small_img)
-        cv2.waitKey(0)
+        # small_img = cv2.resize(augmented_img, dim, interpolation=cv2.INTER_AREA)
+        # cv2.imshow("Augmented image", small_img)
+        # cv2.waitKey(0)
 
     cv2.destroyAllWindows()
 
