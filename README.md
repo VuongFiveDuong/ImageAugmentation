@@ -7,7 +7,7 @@
   
   
 # Naming Convention
-## Pokemon
+## Pokemon [PKM]
 Oringinal image:<br /> 
 [Card type]\_[Index]\_[Frontside(F)/Backside(B)]\_[Card no.]\_[Total Card no.]\_[Card Rarity]\_[Eng/Chi/Jp].jpg<br />
 E.g. PKM_001F_24_202_U_Eng.jpg<br />
@@ -15,7 +15,7 @@ E.g. PKM_001F_24_202_U_Eng.jpg<br />
 Energy card: [Card type]\_[Index][Frontside(F)/Backside(B)]\_[Gold/Not Gold(G/NG)][Energy Type(Fire/Water/...)]\_[Eng/Chi/Jp].jpg'<br />
 E.g. PKM_002F_GFire_Eng<br />
 <img src="https://i.pinimg.com/564x/e4/37/98/e43798bece19e574fda364d212b8f269.jpg" width="200" /><br />
-## YuGiOh
+## YuGiOh [UGO]
 TBD
-## Magic the Gathering
+## Magic the Gathering [MTG]
 TBD
