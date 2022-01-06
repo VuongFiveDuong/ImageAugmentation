@@ -8,7 +8,7 @@
   
 # Naming Convention
 ## Pokemon [PKM]
-### Oringinal image:<br /> 
+### Pokemon card:<br /> 
 [Card type]\_[Index]\_[Frontside(F)/Backside(B)]\_[Generation+Series]\_[Card no.]\_[Language].jpg<br />
 E.g. *PKM_001F_G8S1_24_en.jpg<br />*
 <img src="https://tcg.pokemon.com/assets/img/expansions/sword-shield/cards/en-us/SWSH1_24-2x.jpg" width="200" /><br />
