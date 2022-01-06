@@ -9,7 +9,7 @@
 # Naming Convention
 ## Pokemon [PKM]
 Oringinal image:<br /> 
-[Card type]\_[Index]\_[Frontside(F)/Backside(B)]\_[Card no.]\_[Total Card no.]\_[Card Rarity]\_[Eng/Chi/Jp].jpg<br />
+[Card type]\_[Index]\_[Frontside(F)/Backside(B)]\_[Generation+Series]*\_[Card no.]\_[Card Rarity]\_[Eng/Chi/Jp].jpg<br />
 E.g. PKM_001F_24_202_U_Eng.jpg<br />
 <img src="https://tcg.pokemon.com/assets/img/expansions/sword-shield/cards/en-us/SWSH1_24-2x.jpg" width="200" /><br />
 Energy card: [Card type]\_[Index][Frontside(F)/Backside(B)]\_[Gold/Not Gold(G/NG)][Energy Type(Fire/Water/...)]\_[Eng/Chi/Jp].jpg'<br />
@@ -18,4 +18,6 @@ E.g. PKM_002F_GFire_Eng<br />
 ## YuGiOh [UGO]
 TBD
 ## Magic the Gathering [MTG]
-TBD
+TBD<br />
+## Remarks*
+Please refer the 
