@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-import imgaug.augmenters as iaa
 import os
 from pathlib import Path
 from transformation import rotate_img
