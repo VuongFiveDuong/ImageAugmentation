@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+from config import *
 
 
 # def np_ffill(arr, axis):
@@ -13,7 +14,7 @@ import cv2
 #     return arr[tuple(slc)]
 
 
-def rotate_img(img, angle=0, row=2080, col=1500, padding=30):
+def rotate_img(img, angle=0, row=SIZE_Y, col=SIZE_X, padding=PADDING):
     start_row = padding
     end_row = row - padding
     start_col = padding
@@ -63,7 +64,7 @@ def rotate_img(img, angle=0, row=2080, col=1500, padding=30):
     return out_put
 
 
-def shift_img(img, row=2080, col=1500, shift_x=0, shift_y=0, padding=30):
+def shift_img(img, shift_x=0, shift_y=0, row=SIZE_Y, col=SIZE_X, padding=PADDING):
     start_row = padding
     end_row = row - padding
     start_col = padding

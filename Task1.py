@@ -1,36 +1,11 @@
 import cv2
 import numpy as np
-import imgaug.augmenters as iaa
 import os
-from pathlib import Path
 from transformation import rotate_img
 from transformation import shift_img
-
-
-def append_extension(filename, extension):
-    path = Path(filename)
-    return "{0}{1}{2}".format(path.stem, extension, path.suffix)
-
-
-def make_file_extension(rotate, shift_x, shift_y):
-    # if shift_x == 0:
-    #     shifting_x_extension = ''
-    # elif shift_x > 0:
-    #     shifting_x_extension = '_E_' + str(shift_x)
-    # else:
-    #     shifting_x_extension = '_W_' + str(-shift_x)
-    shifting_x_extension = '_E_' + str(shift_x)
-
-    # if shift_y == 0:
-    #     shifting_y_extension = ''
-    # elif shift_y > 0:
-    #     shifting_y_extension = '_S_' + str(shift_y)
-    # else:
-    #     shifting_y_extension = '_N_' + str(-shift_y)
-    shifting_y_extension = '_S_' + str(shift_y)
-
-    rotation_extension = '_R_' + str(rotate)
-    return rotation_extension + shifting_x_extension + shifting_y_extension
+from name_handling import append_extension
+from name_handling import make_file_extension
+from config import *
 
 
 if __name__ == '__main__':
@@ -61,12 +36,9 @@ if __name__ == '__main__':
     file_extension = make_file_extension(rotate, shift_x, shift_y)
 
     scale_percent = 25  # for reviewing
-    img_extension = "*.jpg"
-    original_images_dir = 'CroppedImages/'
-    augmented_images_dir = 'Off-centered/'
 
     # Loop through each of original image
-    for img_path in glob.glob(original_images_dir + img_extension):
+    for img_path in glob.glob(cropped_images_dir + img_extension):
         img = cv2.imread(img_path)
         # augmented_imgs = augmentation(images=[img])
         rotated_img = rotate_img(img, rotate)
