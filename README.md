@@ -22,3 +22,17 @@ TBD
 TBD<br />
 ## Remarks*
 Please refer the excel file for more details
+
+# Create new images
+## Crop the images
+Copy images to be cropped in `OriginalImages` and run
+'''
+crop_img.py
+'''
+The cropped images now in the `CroppedImages`.
+## Transform
+Transform the images in `CroppedImages`:
+'''
+Task1.py --rotate=1 --shift_x_px=40 --shift_y_px=40
+'''
+The images are written in `Off-centered`.
