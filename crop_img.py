@@ -2,7 +2,8 @@ import cv2
 import numpy as np
 import glob
 import os
-from Task1 import append_extension
+from name_handling import append_extension
+from config import *
 
 
 def crop_img(image):
@@ -23,7 +24,7 @@ def crop_img(image):
     # Find bounding box and extract ROI
     x, y, w, h = cv2.boundingRect(thresh)
     ROI = image[y + padding:y + h - padding, x + padding:x + w - padding]
-    ROI = cv2.resize(ROI, (1500, 2080))
+    ROI = cv2.resize(ROI, (SIZE_X, SIZE_Y))
     cv2.imwrite('TestCrop.png', ROI)
     return ROI
 
@@ -44,7 +45,7 @@ def crop_img(image):
 # cv2.imwrite(rotated_img_name, rotated_img)
 
 
-for img_path in glob.glob('OriginalImages/*.jpg'):
+for img_path in glob.glob(uncropped_images_dir + img_extension):
     img = cv2.imread(img_path)
     print(img_path)
     cropped_img_name = append_extension(img_path, '')
