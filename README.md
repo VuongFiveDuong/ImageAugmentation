@@ -35,4 +35,4 @@ TBD
 ## Magic the Gathering [MTG]
 TBD<br />
 ## Remarks*
-Please refer the excel file for more details
+Check the excel file for more details
