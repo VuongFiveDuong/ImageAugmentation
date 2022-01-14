@@ -5,7 +5,12 @@
   4. Do transformation of cards to simulate card defects
   5. Save into different 4 defection folders (Centering/Corners/Edges/Surface)
   
-  
+  Step 1-3:
+  ```
+  batch2img.py --batch_name=batch_en --side=F --language=en
+  ```
+
+
 # Naming Convention
 ## Pokemon [PKM]
 ### Pokemon card:<br /> 
