@@ -12,7 +12,7 @@
   
   **2. Crop the batch into images**
   ```python
-  batch2img.py --batch_name=batch_d3en001F
+  batch2img.py --batch=batch_d3en001F
   ```
   &emsp;Images will be saved in `OriginalImages` folder<br />
   
