@@ -1,7 +1,7 @@
 # ImageAugmentation
   **1. Name each batch using the below naming convention in the `Batches` folder<br />**
   ```
-  batch\_[Defect_type][Language][Index][Card_side].jpg
+  batch_[Defect_type][Language][Index][Card_side].jpg
   ```
   &emsp;*Defect_type: d0(No defect); d1(Surface); d2(Corner); d3(Edge); d4(Centering)<br />*
   &emsp;*Language: en(English); cn(Chinese); jp(Japanese)<br />*
