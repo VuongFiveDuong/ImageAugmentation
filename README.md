@@ -16,7 +16,7 @@
   ```
   &emsp;E.g. `python batch2img.py batch_d0en001F`
   
-  &emsp;Images will be saved in `OriginalImages/` folder<br />
+  &emsp;Images will be saved in `OriginalImages/` folder according to the defect type<br />
   
   **3. Do transformation of cards to simulate card defects**
   ```python
