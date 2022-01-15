@@ -25,7 +25,7 @@ def crop_img(image):
     x, y, w, h = cv2.boundingRect(thresh)
     ROI = image[y + padding:y + h - padding, x + padding:x + w - padding]
     ROI = cv2.resize(ROI, (SIZE_X, SIZE_Y))
-    cv2.imwrite('TestCrop.png', ROI)
+    #cv2.imwrite('TestCrop.png', ROI)
     return ROI
 
 # img_path = 'PKM_001F_132_194_RR_Chi.jpg'

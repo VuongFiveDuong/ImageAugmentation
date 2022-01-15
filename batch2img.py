@@ -1,38 +1,39 @@
 import string
-import numpy as np
 import cv2, os, random, glob
-from matplotlib import pyplot as plt
-from collections import Counter
+from crop_img import crop_img
+from config import *
 
-
+def defects(x):
+    return {
+        '0': "/NoDefect",
+        '1': "/Defects/Surface",
+        '2': "/Defects/Corner",
+        '3': "/Defects/Edge",
+        '4': "/Defects/Centerning",
+    }[x]
 
 if __name__ == '__main__':
     import argparse
     import glob
 
     parser = argparse.ArgumentParser()
-
-    parser.add_argument('--batch_name', type=str, default="batch_en",
+    parser.add_argument('batch', type=str,
                         help="batch file name")
-    parser.add_argument('--side', type=str, default="F",
-                        help="frontside(F)/backside(B)")
-    parser.add_argument('--language', type=str, default="en",
-                        help="language of the batch")
-
     args = parser.parse_args()
-    batch_name = args.batch_name
-    side = args.side
-    language = args.language
-    batch_path = './Batch/'+batch_name+'.jpg'
-    x = [100, 1800, 3500, 5200]
-    y = [200, 2600, 5000, 7400]
-    h = 2300
-    w = 1700
+    
+    batch_name = args.batch
+    defect_type = batch_name[7]
+    language = batch_name[8:10]
+    side = batch_name[13]
+    des_path = defects(defect_type)
+    batch_path = './Batches/'+batch_name+'.jpg'
 
     for i in range(4):
         for j in range(4):
-            index = len(glob.glob1("./OriginalImages","*.jpg"))
+            index = len(glob.glob1("./OriginalImages"+des_path, img_extension))
             img = cv2.imread(batch_path)
-            crop_img = img[y[i]:y[i]+h, x[j]:x[j]+w] #crop
-            cv2.imwrite('./OriginalImages/PKM_'+str(index).zfill(3)+side+'_'+language+'.jpg', crop_img)
+            cropped_img = img[y[i]:y[i]+h, x[j]:x[j]+w]         #crop
+            cropped_img = crop_img(cropped_img)                 #reshape
+            cv2.imwrite('./OriginalImages'+des_path+'/PKM_'+str(index).zfill(3)+side+'_'+language+'.jpg', cropped_img)
+            print('PKM_'+str(index).zfill(3)+side+'_'+language+'.jpg saved to '+'OriginalImages'+des_path)
 

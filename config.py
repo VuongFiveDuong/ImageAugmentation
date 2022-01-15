@@ -7,4 +7,7 @@ uncropped_images_dir = 'OriginalImages/'
 cropped_images_dir = 'CroppedImages/'
 augmented_images_dir = 'Off-centered/'
 
-
+x = [100, 1800, 3500, 5200]
+y = [200, 2600, 5000, 7400]
+h = 2300
+w = 1700
