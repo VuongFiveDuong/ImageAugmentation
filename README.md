@@ -1,31 +1,33 @@
 # ImageAugmentation
-  1. Read image from Batch folder
-  2. Crop 1 batch into 16 card images
-  3. Save into OriginalImages
-  4. Crop and reshape the original images from 'OriginalImages' to 'CroppedImages'
-  5. Do transformation of cards to simulate card defects
-  6. Save into different 4 defection folders (Centering/Corners/Edges/Surface)
+  **1. Name each batch using the below naming convention in the `Batches` folder<br />**
+  ```
+  batch\_[Defect_type][Language][Index][Card_side].jpg
   
-  Step 1-3:
+  *Defect_type: d0(No defect);d1(Surface);d2(Corner);d3(Edge);d4(Centering)
+  *Language: en(English);cn(Chinese);jp(Japanese)
+  *Index: 000~999
+  *Card_side: F(Frontside);B(Backside)
   ```
-  batch2img.py --batch_name=batch_en --side=F --language=en
+  &emsp;E.g. *batch_d3en001F.jpg<br />*
+  
+  **2. Crop the batch into images**
+  ```python
+  batch2img.py --batch_name=batch_d3en001F
   ```
-  Step 4:
-  ```
-  crop_img.py
-  ```
-  Step 5:
-  ```
+  &emsp;Images will be saved in `OriginalImages` folder<br />
+  
+  **3. Do transformation of cards to simulate card defects**
+  ```python
   Task1.py --rotate=1 --shift_x_px=40 --shift_y_px=40
   ```
-  The images are written in `Off-centered`.
+  &emsp;The images are written in `Off-centered`.
 
   
 
 
 # Naming Convention
 ## Pokemon [PKM]
-### Pokemon card:<br /> 
+**Pokemon card:<br />**
 [Card type]\_[Index]\_[Frontside(F)/Backside(B)]\_[Language].jpg<br />
 E.g. *PKM_001F_en.jpg<br />*
 <img src="https://tcg.pokemon.com/assets/img/expansions/sword-shield/cards/en-us/SWSH1_24-2x.jpg" width="200" /><br />
