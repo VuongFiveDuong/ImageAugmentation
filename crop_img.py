@@ -45,7 +45,7 @@ def crop_img(image):
 # cv2.imwrite(rotated_img_name, rotated_img)
 
 
-for img_path in glob.glob(uncropped_images_dir + img_extension):
+# for img_path in glob.glob(uncropped_images_dir + img_extension):
     img = cv2.imread(img_path)
     print(img_path)
     cropped_img_name = append_extension(img_path, '')
@@ -57,4 +57,4 @@ for img_path in glob.glob(uncropped_images_dir + img_extension):
     cv2.imwrite(os.path.join('CroppedImages/', cropped_img_name), cropped_img)
     # cv2.imwrite(os.path.join('testOriginal/rotated', rotated_img_name), rotated_img)
 
-cv2.destroyAllWindows()
+# cv2.destroyAllWindows()
