@@ -22,7 +22,7 @@
   ```python
   Task1.py --rotate=1 --shift_x_px=40 --shift_y_px=40
   ```
-  &emsp;The images are written in `Off-centered`.
+  &emsp;The images are written in `Centering`.
   
 # Naming Convention
 ## Pokemon [PKM]
