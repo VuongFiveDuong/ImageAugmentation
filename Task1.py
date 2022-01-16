@@ -6,7 +6,7 @@ from transformation import shift_img
 from name_handling import append_extension
 from name_handling import make_file_extension
 from config import *
-
+s
 
 if __name__ == '__main__':
     import argparse
@@ -36,9 +36,9 @@ if __name__ == '__main__':
     file_extension = make_file_extension(rotate, shift_x, shift_y)
 
     scale_percent = 25  # for reviewing
-
     # Loop through each of original image
     for img_path in glob.glob(cropped_images_dir + img_extension):
+        # print(img_path)
         img = cv2.imread(img_path)
         # augmented_imgs = augmentation(images=[img])
         rotated_img = rotate_img(img, rotate)
