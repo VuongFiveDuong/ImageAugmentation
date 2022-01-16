@@ -21,3 +21,4 @@ __pycache__/
 .env.production.local
 .ipynb_checkpoints
 
+.DS_Store
