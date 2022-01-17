@@ -1,5 +1,5 @@
 # ImageAugmentation
-  **1. Name each batch using the below naming convention in the `Batches` folder<br />**
+  **1. Name each batch using the below naming convention in the** `Batches` **folder<br />**
   ```
   batch_[Defect_type][Language][Index][Card_side].jpg
   ```
