@@ -9,7 +9,8 @@ def defects(x):
         '1': "/Defects/Surface",
         '2': "/Defects/Corner",
         '3': "/Defects/Edge",
-        '4': "/Defects/Centerning",
+        '4': "/Defects/Centering",
+        '5': "/NoDefect/2decenter",
     }[x]
 
 if __name__ == '__main__':
@@ -27,7 +28,7 @@ if __name__ == '__main__':
     side = batch_name[13]
     des_path = defects(defect_type)
     batch_path = './Batches/'+batch_name+'.jpg'
-
+    print(des_path)
     for i in range(4):
         for j in range(4):
             index = len(glob.glob1("./OriginalImages"+des_path, img_extension))
