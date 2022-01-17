@@ -1,5 +1,5 @@
 # ImageAugmentation
-  **1. Name each batch using the below naming convention in the `Batches` folder<br />**
+  **1. Name each batch using the below naming convention in the** `Batches` **folder<br />**
   ```
   batch_[Defect_type][Language][Index][Card_side].jpg
   ```
@@ -28,7 +28,7 @@
 ## Pokemon [PKM]
 **Pokemon card:<br />**
 [Card type]\_[Index][Frontside(F)/Backside(B)]\_[Language]\_[Card Index].jpg<br />
-E.g. *PKM_001F_en_24-202.jpg<br />*
+E.g. *PKM_001F_en_024-202.jpg<br />*
 <img src="https://tcg.pokemon.com/assets/img/expansions/sword-shield/cards/en-us/SWSH1_24-2x.jpg" width="200" /><br />
 
 ## YuGiOh [UGO]
