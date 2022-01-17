@@ -27,8 +27,8 @@
 # Naming Convention
 ## Pokemon [PKM]
 **Pokemon card:<br />**
-[Card type]\_[Index][Frontside(F)/Backside(B)]\_[Language].jpg<br />
-E.g. *PKM_001F_en.jpg<br />*
+[Card type]\_[Index][Frontside(F)/Backside(B)]\_[Language]\_[Card Index].jpg<br />
+E.g. *PKM_001F_en_268-184.jpg<br />*
 <img src="https://tcg.pokemon.com/assets/img/expansions/sword-shield/cards/en-us/SWSH1_24-2x.jpg" width="200" /><br />
 
 ## YuGiOh [UGO]
