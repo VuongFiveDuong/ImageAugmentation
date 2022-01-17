@@ -6,7 +6,7 @@ img_extension = "*.jpg"
 #uncropped_images_dir = 'OriginalImages/'
 cropped_images_dir = 'OriginalImages/'
 augmented_images_dir = 'OriginalImages/Defects/Centering'
-nodefect2decenter_dir = 'OriginalImages/NoDefect/2decenter'
+nodefect2decenter_dir = 'OriginalImages/NoDefect/2decenter/'
 
 x = [100, 1800, 3500, 5200]
 y = [200, 2600, 5000, 7400]

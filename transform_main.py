@@ -6,7 +6,7 @@ from transformation import shift_img
 from name_handling import append_extension
 from name_handling import make_file_extension
 from config import *
-s
+
 
 if __name__ == '__main__':
     import argparse
@@ -37,6 +37,7 @@ if __name__ == '__main__':
 
     scale_percent = 25  # for reviewing
     # Loop through each of original image
+    print(nodefect2decenter_dir + img_extension)
     for img_path in glob.glob(nodefect2decenter_dir + img_extension):
         # print(img_path)
         img = cv2.imread(img_path)
